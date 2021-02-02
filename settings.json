@@ -68,29 +68,18 @@
         }
     ],
     "vim.leader": "<space>",
+    "vim.useCtrlKeys": false,
     "vim.handleKeys": {
-        "<C-c>": false,
-        "<C-f>": false,
-        "<C-v>": false,
-        "<C-y>": false,
-        "<C-h>": false,
-        "<C-g>": false,
-        "<C-x>": false,
-        "<C-a>": false,
-        "<C-w>": false,
-        "<C-k>": false,
+        "<C-c>": false
     },
-    "vim.visualModeKeyBindingsNonRecursive": [
+    "vim.insertModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "p",
-            ],
-            "after": [
-                "p",
-                "g",
-                "v",
-                "y"
-            ]
+            "before": ["ö"],
+            "commands": ["selectNextSuggestion"]
+        },
+        {
+            "before": ["Ö"],
+            "commands": ["selectPrevSuggestion"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -109,6 +98,32 @@
         {
             "before": ["<leader>", "r"],
             "commands": ["revealFileInOS"]
+        },
+        {
+            "before": ["<leader>", "z"],
+            "commands": ["workbench.action.toggleZenMode"]
+        },
+        {
+            "before": ["<leader>", "o"],
+            "commands": ["editor.action.openLink"]
+        },
+        {
+            "before": ["ö"],
+            "after": [";"]
+        },
+        {
+            "before": ["Ö"],
+            "after": [","]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["ö"],
+            "after": [";"]
+        },
+        {
+            "before": ["Ö"],
+            "after": [","]
         }
     ],
     "workbench.iconTheme": "material-icon-theme",
@@ -133,13 +148,15 @@
     },
     "window.zoomLevel": 0,
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "angularConsole.useNVM": false,
     "prettier.trailingComma": "es5",
     "prettier.proseWrap": "always",
     "workbench.startupEditor": "newUntitledFile",
     "debug.allowBreakpointsEverywhere": true,
-    "rust-analyzer.enableEnhancedTyping": false,
-    "php.validate.executablePath": "C:\\laragon\\bin\\php\\php-7.2.19-Win32-VC15-x64",
+    "php.validate.executablePath": "C:\\laragon\\bin\\php\\php-7.2.19-Win32-VC15-x64\\php.exe",
     "editor.lineNumbers": "relative",
-    "zenMode.hideLineNumbers": false
+    "zenMode.hideLineNumbers": false,
+    "clipboard-manager.moveToTop": false,
+    "clipboard-manager.snippet.enabled": false,
+    "rust-analyzer.updates.askBeforeDownload": false,
+    "editor.formatOnSave": true
 }
