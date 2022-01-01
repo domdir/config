@@ -3,6 +3,7 @@ prompt = "starship prompt"
 startup = [
     "let oldpath = (pathvar)",
     "let-env PATH = (pathvar | where ( $it | str starts-with \"/mnt\" ) == $false | str collect \":\" )",
+    "let-env JAVA_HOME = /usr/lib/jvm/default-runtime",
 
    "alias a = paru",
    "alias as = paru -S"

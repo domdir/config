@@ -50,9 +50,6 @@ local config = {
   -- for a list of options
   settings = {
     java = {
-      settings = {
-        url = "settings.pref"
-      }
     }
   },
 
@@ -68,7 +65,7 @@ local config = {
   --     vim.fn.glob("~/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
   --   }
   -- },
-  on_attach = function(_client, _bufnr)
+  on_attach = function(client, bufnr)
     -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
     -- you make during a debug session immediately.
     -- Remove the option if you do not want that.

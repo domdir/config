@@ -7,4 +7,6 @@ as libffi
 as ripgrep
 as npm
 as icu
+as unzip
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
