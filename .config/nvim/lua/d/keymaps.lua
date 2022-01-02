@@ -31,8 +31,8 @@ keymap("n", "H", ":bprevious<CR>", opts)
 keymap("n", "<c-w><c-w>", ":bd<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
 -- quick save
 keymap("n", "<leader>w", ":w<CR>", opts)
@@ -41,6 +41,10 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<c-j>", ":cnext<CR>", opts)
 keymap("n", "<c-k>", ":cprev<CR>", opts)
 keymap("n", "<c-w>q", ":cclose<CR>", opts)
+
+-- clear serach
+keymap("n", "<esc>", ":noh<return><esc>", opts)
+keymap("n", "<esc>^[", "<esc>^[]]", opts)
 
 -- Insert --
 

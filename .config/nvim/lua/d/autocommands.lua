@@ -28,10 +28,11 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
+
+  augroup _tabs_and_spaces
+    autocmd!
+    autocmd FileType lua set shiftwidth=2
+    autocmd FileType lua set tabstop=2
+  augroup end
 ]]
 
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
