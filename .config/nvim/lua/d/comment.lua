@@ -14,6 +14,11 @@ comment.setup {
       location = require("ts_context_commentstring.utils").get_visual_start_location()
     end
 
+		if ctx.ctype == U.ctype.line and ctx.cmotion == U.cmotion.line then
+      -- Only comment when we are doing linewise comment and up-down motion
+      return require('ts_context_commentstring.internal').calculate_commentstring()
+    end
+
     return require("ts_context_commentstring.internal").calculate_commentstring {
       key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
       location = location,

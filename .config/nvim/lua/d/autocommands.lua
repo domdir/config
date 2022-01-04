@@ -31,8 +31,8 @@ vim.cmd [[
 
   augroup _tabs_and_spaces
     autocmd!
-    autocmd FileType lua set shiftwidth=2
-    autocmd FileType lua set tabstop=2
+    autocmd FileType lua set shiftwidth=2 tabstop=2
+    autocmd FileType java set autoindent noexpandtab tabstop=4 shiftwidth=4 formatoptions+=cro
   augroup end
 ]]
 

@@ -33,7 +33,7 @@ local config = {
   cmd = {
 
     -- 💀
-    'java', -- or '/path/to/java11_or_newer/bin/java'
+    '/usr/lib/jvm/java-11-openjdk/bin/java', -- or '/path/to/java11_or_newer/bin/java'
             -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -41,7 +41,7 @@ local config = {
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-Xms1g',
+    '-Xms16g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -76,7 +76,12 @@ local config = {
   settings = {
     java = {
       completion = {
-        importOrder = ";javax;java;\\#",
+        importOrder = "\\#;java;javax;org;com;",
+      },
+      format = {
+        settings = {
+          url = "/home/dirli/.config/java/intellij-formatting.xml",
+        },
       },
       settings = {
         url = "/home/dirli/.config/java/settings.pref"
@@ -108,9 +113,8 @@ local config = {
       command! -buffer JdtJol lua require('jdtls').jol()
       command! -buffer JdtBytecode lua require('jdtls').javap()
       command! -buffer JdtJshell lua require('jdtls').jshell()
-
-      autocmd BufWritePre <buffer> lua Remove_line_between_javax_and_java_imports()
     ]]
+    -- autocmd BufWritePre <buffer> lua Remove_line_between_javax_and_java_imports()
 
     require('d.lsp.handlers').on_attach(client, bufnr)
 
@@ -118,7 +122,7 @@ local config = {
     local keymap = vim.api.nvim_buf_set_keymap
 
     keymap(bufnr, "n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-    keymap(bufnr, "n", "<A-z>", "<Cmd>lua Remove_line_between_javax_and_java_imports()<CR>", opts)
+    -- keymap(bufnr, "n", "<A-z>", "<Cmd>lua Remove_line_between_javax_and_java_imports()<CR>", opts)
     keymap(bufnr, "n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
     keymap(bufnr, "n", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
     keymap(bufnr, "n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
