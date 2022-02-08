@@ -19,4 +19,5 @@ require "d.indentline"
 require "d.alpha"
 require "d.whichkey"
 require "d.autocommands"
+require "d.firenvim"
 
