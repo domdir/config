@@ -34,19 +34,30 @@ keymap("n", "<c-w><c-w>", ":bd<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
--- quick save
-keymap("n", "<leader>w", ":w<CR>", opts)
-
 -- quickfix list (<c-q>)
 keymap("n", "<c-j>", ":cnext<CR>", opts)
 keymap("n", "<c-k>", ":cprev<CR>", opts)
-keymap("n", "<c-w>q", ":cclose<CR>", opts)
+keymap("n", "<c-q>", ":cclose<CR>", opts)
 
 -- clear serach
 keymap("n", "<esc>", ":noh<return><esc>", opts)
 keymap("n", "<esc>^[", "<esc>^[]]", opts)
 
+-- yank to end of line
+keymap("n", "Y", "y$", opts)
+
+-- cut
+keymap("n", "x", "d", opts)
+keymap("n", "xx", "dd", opts)
+keymap("n", "X", "D", opts)
+
 -- Insert --
+-- undo break points
+keymap("i", ",", ",<c-g>u", opts)
+keymap("i", ".", ".<c-g>u", opts)
+keymap("i", "?", "?<c-g>u", opts)
+keymap("i", "!", "!<c-g>u", opts)
+keymap("i", ")", ")<c-g>u", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -64,6 +75,8 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+-- cut
+keymap("x", "x", "d", opts)
 
 -- Terminal --
 -- Better terminal navigation

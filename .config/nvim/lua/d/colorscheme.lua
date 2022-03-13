@@ -1,3 +1,5 @@
+vim.g.vscode_style = "dark"
+
 vim.cmd [[
 try
   colorscheme darkplus

@@ -82,17 +82,11 @@ local n_opts = {
 
 local n_mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["w"] = { "<cmd>w<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = { "<cmd>Telescope live_grep<CR>", "Find Text" },
-  ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["b"] = { "<cmd>:lua require'dap'.toggle_breakpoint()<CR>", "Toggle Breakpoint" },
+  ["B"] = { "<cmd>:lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))()<CR>", "Conditional Breakpoint" },
 
   p = {
     name = "Packer",
@@ -124,17 +118,18 @@ local n_mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   },
 
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope lsp_document_diagnostics<cr>",
-      "Document Diagnostics",
-    },
+    -- d = {
+    --   "<cmd>Telescope diagnostics(0)<cr>",
+    --   "Document Diagnostics",
+    -- },
     w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+      "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",
     },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
@@ -157,16 +152,30 @@ local n_mappings = {
       "Workspace Symbols",
     },
   },
+
+  d = {
+    name = "Debug",
+    r = { "<cmd>:lua require'dap'.repl.toggle()<CR>", "Repl Toggle" },
+    l = { "<cmd>:lua require'dap'.run_last()<CR>", "Run Last" },
+  },
+
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    c = { "<cmd>Telescope commands<cr>", "Commands" },
+    i = { "<cmd>Cheat<cr>", "Search cheat.sh" },
+    f = { "<cmd>Telescope live_grep<CR>", "Find Text" },
+    P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Buffers",
+    },
+    h = { "<cmd>Telescope harpoon marks<CR>", "Harpoon marks" },
   },
 
   t = {
@@ -178,6 +187,11 @@ local n_mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+
+  i = {
+    name = "Misc",
+    r = { "<cmd>Telescope reloader<cr>", "Reload module" },
   },
 }
 

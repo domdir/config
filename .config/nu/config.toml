@@ -7,6 +7,7 @@ startup = [
 
     "alias a = paru",
     "alias as = paru -S",
+    "alias aall = paru -Syu",
     
     "alias ll = ls -l",
     "alias gl = git log --oneline -n 10",
@@ -30,5 +31,6 @@ startup = [
     "alias gj = git fetch",
     "alias gjo = git fetch origin",
     "alias gr = git reset",
-    "alias grh = git reset --hard"
+    "alias grh = git reset --hard",
+    "alias gd = git add"
 ]

@@ -72,4 +72,4 @@ git clone git@github.com:domdir/config.git
 // make sure you are not inside nu and .config folder is empty or does not exist
 ln -s config/.config .config
 nu
-nu config/install.nu
+nu config/install_wsl.nu

@@ -59,10 +59,19 @@ return packer.startup(function(use)
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "ggandor/lightspeed.nvim"
+  use "ThePrimeagen/harpoon"
+  use "svermeulen/vim-cutlass" -- Explicit cut+paste
+  use {
+      'glacambre/firenvim',
+      run = function() vim.fn['firenvim#install'](0) end 
+  }
 
   -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  use "lunarvim/darkplus.nvim"
+  -- use "lunarvim/colorschemes"
+  -- use "lunarvim/darkplus.nvim"
+  use "rafi/awesome-vim-colorschemes"
+  use "Mofiqul/vscode.nvim"
+  use "martinsione/darkplus.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -71,6 +80,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use {"tzachar/cmp-tabnine", run = "bash ./install.sh"}
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -84,6 +94,8 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-jdtls" -- Java
   use "simrat39/rust-tools.nvim" -- Rust
   use "mfussenegger/nvim-dap" -- Debugger
+  use "rcarriga/nvim-dap-ui"
+  use "theHamsta/nvim-dap-virtual-text"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
@@ -100,6 +112,10 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
   use "APZelos/blamer.nvim"
+
+  -- cheat.sh
+  use "RishabhRD/popfix"
+  use "RishabhRD/nvim-cheat.sh"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
