@@ -5,6 +5,8 @@ ln -s ~/config/alacritty ~/.config/alacritty
 as xclip
 as tmux
 as neovim
+as languagetool
+as jre-openjdk
 as rust-analyzer
 as lldb
 as libffi

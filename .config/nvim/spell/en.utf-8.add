@@ -13,3 +13,7 @@ lsp
 cmp
 colorscheme
 keymaps
+args
+deserialize
+serde
+languagetool

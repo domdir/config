@@ -22,4 +22,5 @@ require "d.whichkey"
 require "d.autocommands"
 require "d.firenvim"
 require "d.harpoon"
+require "d.spelling"
 
