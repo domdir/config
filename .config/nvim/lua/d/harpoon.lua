@@ -1,14 +1,14 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-local mark_status_ok, harpoon_mark = pcall(require, "harpoon.mark")
+local mark_status_ok = pcall(require, "harpoon.mark")
 if not mark_status_ok then
   return
 end
 
 keymap("n", "<leader>m", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
 
-local ui_status_ok, harpoon_ui = pcall(require, "harpoon.ui")
+local ui_status_ok = pcall(require, "harpoon.ui")
 if not ui_status_ok then
   return
 end

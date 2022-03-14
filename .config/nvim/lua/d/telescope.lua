@@ -96,13 +96,13 @@ telescope.setup {
 }
 
 
-local fzf_status_ok, fzf = pcall(require, "fzf")
+local fzf_status_ok = pcall(require, "fzf")
 if not fzf_status_ok then
 	return
 end
 telescope.load_extension("fzf")
 
-local harpoon_status_ok, harpoon = pcall(require, "harpoon")
+local harpoon_status_ok = pcall(require, "harpoon")
 if not harpoon_status_ok then
 	return
 end

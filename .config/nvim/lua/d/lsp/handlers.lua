@@ -74,17 +74,45 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "v", "<leader>.", "<cmd>Telescope lsp_code_actions<CR>", opts)
   -- keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   keymap(bufnr, "n", "<leader>j", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  keymap(
-    bufnr,
-    "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
-    opts
-  )
+  keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
   keymap(bufnr, "n", "<leader>k", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   keymap(bufnr, "n", "<A-l>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+end
+
+local function dap_keymaps(client, bufnr)
+  local opts = { noremap = true, silent = true }
+  local keymap = vim.api.nvim_buf_set_keymap
+
+  if client.name == "jdt.ls" then
+    keymap(bufnr, "n", "<leader>df", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+    keymap(bufnr, "n", "<leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+  end
+
+  if client.name == "pyright" then
+    keymap(bufnr, "n", "<leader>df", "<Cmd>lua require'dap-python'.test_class()<CR>", opts)
+    keymap(bufnr, "n", "<leader>dn", "<Cmd>lua require'dap-python'.test_nearest_method()<CR>", opts)
+    keymap(bufnr, "n", "<leader>ds", "<Cmd>lua require'dap-python'.debug_selection()<CR>", opts)
+  end
+end
+
+local function server_specific_keymaps(client, bufnr)
+  local opts = { noremap = true, silent = true }
+  local keymap = vim.api.nvim_buf_set_keymap
+
+  if client.name == "jdt.ls" then
+    keymap(bufnr, "n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+    keymap(bufnr, "n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+    keymap(bufnr, "n", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+    keymap(bufnr, "n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+    keymap(bufnr, "n", "crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
+    keymap(bufnr, "n", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+  end
+
+  if client.name == "pyright" then
+    keymap(bufnr, "n", "<A-o>", "<Cmd>PyrightOrganizeImports<CR>", opts)
+  end
 end
 
 M.on_attach = function(client, bufnr)
@@ -92,6 +120,8 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
+  dap_keymaps(client, bufnr)
+  server_specific_keymaps(client, bufnr)
   lsp_highlight_document(client)
 end
 

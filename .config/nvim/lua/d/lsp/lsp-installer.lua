@@ -21,6 +21,10 @@ lsp_installer.on_server_ready(function(server)
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
+  if server.name == "pyright" then
+    require("d.lsp.settings.python")
+  end
+
   if server.name == "rust_analyzer" then
     require('rust-tools').setup({
       server = opts

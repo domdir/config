@@ -118,7 +118,6 @@ local n_mappings = {
       "<cmd>Gitsigns diffthis HEAD<cr>",
       "Diff",
     },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   },
 
   l = {
@@ -175,7 +174,6 @@ local n_mappings = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Buffers",
     },
-    h = { "<cmd>Telescope harpoon marks<CR>", "Harpoon marks" },
   },
 
   t = {
@@ -189,9 +187,10 @@ local n_mappings = {
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 
-  i = {
+  y = {
     name = "Misc",
     r = { "<cmd>Telescope reloader<cr>", "Reload module" },
+    a = { ":set rnu!<cr>", "Toggle relative line numbers" },
   },
 }
 

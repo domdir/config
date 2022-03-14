@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use "svermeulen/vim-cutlass" -- Explicit cut+paste
   use {
       'glacambre/firenvim',
-      run = function() vim.fn['firenvim#install'](0) end 
+      run = function() vim.fn['firenvim#install'](0) end
   }
 
   -- Colorschemes
@@ -96,6 +96,7 @@ return packer.startup(function(use)
   use "mfussenegger/nvim-dap" -- Debugger
   use "rcarriga/nvim-dap-ui"
   use "theHamsta/nvim-dap-virtual-text"
+  use "mfussenegger/nvim-dap-python" -- Python debugger
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
