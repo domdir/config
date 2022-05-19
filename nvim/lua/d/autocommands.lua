@@ -1,38 +1,51 @@
-vim.cmd [[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
-    autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd FileType qf set nobuflisted
-  augroup end
+local general_group = vim.api.nvim_create_augroup("_GeneralSettings", {})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "qf", "help", "man", "lspinfo" },
+  group = general_group,
+  callback = function ()
+    vim.api.nvim_buf_set_keymap(0, "n", "q", ":close<CR>", { noremap = true })
+  end
+})
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  group = general_group,
+  callback = function ()
+    require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
+  end
+})
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*",
+  group = general_group,
+  command = "set formatoptions-=cro"
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  group = general_group,
+  command = "set nobuflisted"
+})
 
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal wrap
-    autocmd FileType gitcommit setlocal spell
-  augroup end
+local alpha_group = vim.api.nvim_create_augroup("_Alpha", {})
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AlphaReady",
+  group = alpha_group,
+  command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2"
+})
 
-  augroup _markdown
-    autocmd!
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
-  augroup end
+local resize_group = vim.api.nvim_create_augroup("_Resize", {})
+vim.api.nvim_create_autocmd("VimResized", {
+  pattern = "*",
+  group = resize_group,
+  command = "tabdo wincmd = "
+})
 
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd = 
-  augroup end
-
-  augroup _alpha
-    autocmd!
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
-
-  augroup _tabs_and_spaces
-    autocmd!
-    autocmd FileType lua set shiftwidth=2 tabstop=2
-    autocmd FileType java set autoindent noexpandtab tabstop=4 shiftwidth=4 formatoptions+=cro
-  augroup end
-]]
-
+local tabs_and_spaces_group = vim.api.nvim_create_augroup("_TabsAndSpaces", {})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  group = tabs_and_spaces_group,
+  command = "set shiftwidth=2 tabstop=2"
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  group = tabs_and_spaces_group,
+  command = "set autoindent noexpandtab tabstop=4 shiftwidth=4 formatoptions+=cro"
+})
