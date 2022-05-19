@@ -32,3 +32,5 @@ alias gjo = git fetch origin
 alias gr = git reset
 alias grh = git reset --hard
 alias gd = git add
+
+source ~/.config/nushell/venv.nu
