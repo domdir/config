@@ -1,3 +1,6 @@
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
 local options = {
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
   backup = false,                          -- creates a backup file
