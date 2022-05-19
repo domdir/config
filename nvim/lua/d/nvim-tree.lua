@@ -33,6 +33,21 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.g.git_hl = 1
+vim.g.disable_window_picker = 0
+vim.g.root_folder_modifier = ":t"
+vim.g.quit_on_open = 1
+vim.g.show_icons = {
+    git = 1,
+    folders = 1,
+    files = 1,
+    folder_arrows = 1,
+    tree_width = 30,
+  }
+
+-- Close nvim if tree is the last buffer
+-- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
@@ -42,7 +57,6 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -97,16 +111,5 @@ nvim_tree.setup {
   trash = {
     cmd = "trash",
     require_confirm = true,
-  },
-  quit_on_open = 1,
-  git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
   },
 }
