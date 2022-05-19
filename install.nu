@@ -2,6 +2,7 @@ ln -s ~/config/.tmux.conf ~/.tmux.conf
 ln -s ~/config/nvim ~/.config
 ln -s ~/config/nushell ~/.config
 ln -s ~/config/alacritty ~/.config/alacritty
+ln -s ~/config/starship.toml ~/.config
 ln -s ~/config/window_mover.json ~/.config/window_mover.json
 as xclip
 as xdotool
