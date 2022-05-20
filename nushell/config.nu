@@ -3,6 +3,7 @@ source ~/.config/nushell/default.nu
 
 let-env PROMPT_COMMAND = { starship prompt }
 let-env PROMPT_COMMAND_RIGHT = ""
+let-env JAVA_HOME = "/usr/lib/jvm/default"
 
 alias a = paru
 alias as = paru -S
