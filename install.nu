@@ -7,6 +7,7 @@ ln -s ~/config/starship.toml ~/.config
 ln -s ~/config/window_mover.json ~/.config/window_mover.json
 as xclip
 as xdotool
+as wmctrl
 as tmux
 as zellij
 as neovim
