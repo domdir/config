@@ -1,9 +1,112 @@
 {
   "commands":{
+    "3440x1440":[{
+      "name":"right",
+      "window_positions":[{
+        "window_names":["alacritty", "slack"],
+        "position":{
+          "left":1720,
+          "top":-29,
+          "width":1720,
+          "height":1396
+        }
+      },
+      {
+        "window_names":["brave-browser",
+        "pkooggnaalmfkidjmlhoelhdllpphaga"],
+        "position":{
+          "left":1702,
+          "top":-10,
+          "width":1755,
+          "height":1438
+        }
+      }],
+      "default":{
+        "left":1720,
+        "top":29,
+        "width":1720,
+        "height":1367
+      }
+    },
+    {
+      "name":"left",
+      "window_positions":[{
+        "window_names":["alacritty", "slack"],
+        "position":{
+          "left":0,
+          "top":-29,
+          "width":1720,
+          "height":1396
+        }
+      },
+      {
+        "window_names":["brave-browser",
+        "pkooggnaalmfkidjmlhoelhdllpphaga"],
+        "position":{
+          "left":-20,
+          "top":-10,
+          "width":1755,
+          "height":1438
+        }
+      }],
+      "default":{
+        "left":0,
+        "top":29,
+        "width":1720,
+        "height":1367
+      }
+    },
+    {
+      "name":"mid",
+      "window_positions":[{
+        "window_names":["alacritty", "slack"],
+        "position":{
+          "left":600,
+          "top":-29,
+          "width":2240,
+          "height":1396
+        }
+      },
+      {
+        "window_names":["brave-browser",
+        "pkooggnaalmfkidjmlhoelhdllpphaga"],
+        "position":{
+          "left":-20,
+          "top":-10,
+          "width":3480,
+          "height":1438
+        }
+      }],
+      "default":{
+        "left":600,
+        "top":29,
+        "width":2240,
+        "height":1367
+      }
+    },
+    {
+      "name":"max",
+      "window_positions":[{
+        "window_names":["alacritty", "slack"],
+        "position":{
+          "left":0,
+          "top":-29,
+          "width":3440,
+          "height":1396
+        }
+      }],
+      "default":{
+        "left":0,
+        "top":29,
+        "width":3440,
+        "height":1367
+      }
+    }],
     "5120x1440":[{
       "name":"mid",
       "window_positions":[{
-        "window_names":["brave-browser", "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
+        "window_names":["brave-browser",
+        "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
         "position":{
           "left":1283,
           "top":-10,
@@ -30,7 +133,8 @@
     {
       "name":"left",
       "window_positions":[{
-        "window_names":["brave-browser", "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
+        "window_names":["brave-browser",
+        "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
         "position":{
           "left":-16,
           "top":-10,
@@ -57,7 +161,8 @@
     {
       "name":"right",
       "window_positions":[{
-        "window_names":["brave-browser", "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
+        "window_names":["brave-browser",
+        "eigpmdhekjlgjgcppnanaanbdmnlnagl"],
         "position":{
           "left":3803,
           "top":-10,
