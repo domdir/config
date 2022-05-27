@@ -22,5 +22,6 @@ as npm
 as icu
 as unzip
 as nerd-fonts-fira-code
+as noto-fonts-emoji
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git config --global core.editor "nvim"
