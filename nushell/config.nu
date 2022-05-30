@@ -1,6 +1,10 @@
 # Nushell Config File
 source ~/.config/nushell/default.nu
 
+let-env config = {
+    edit_mode: vi
+}
+
 let-env PROMPT_COMMAND = { starship prompt }
 let-env PROMPT_COMMAND_RIGHT = ""
 let-env JAVA_HOME = "/usr/lib/jvm/default"
