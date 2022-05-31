@@ -106,4 +106,10 @@ local harpoon_status_ok = pcall(require, "harpoon")
 if not harpoon_status_ok then
 	return
 end
-require("telescope").load_extension("harpoon")
+telescope.load_extension("harpoon")
+
+local rg_status_ok = pcall(require, "live_grep_raw")
+if not rg_status_ok then
+	return
+end
+telescope.load_extension("live_grep_raw")
