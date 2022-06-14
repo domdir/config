@@ -54,7 +54,6 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
   use "ggandor/lightspeed.nvim"
@@ -71,6 +70,7 @@ return packer.startup(function(use)
   use "rafi/awesome-vim-colorschemes"
   use "Mofiqul/vscode.nvim"
   use "martinsione/darkplus.nvim"
+  use "ellisonleao/gruvbox.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
