@@ -25,6 +25,7 @@ keybinds:
         - action: [Quit: ,SwitchToMode: Normal,]
           key: [Char: 'q',]
 
+theme: gruvbox
 simplified_ui: false
 pane_frames: false
 plugins:
