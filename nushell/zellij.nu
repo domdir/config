@@ -18,5 +18,5 @@ def z [repo: string@list-repos] {
 
     let wd = (find-all-repos | where name == $repo | get path | get 0)
     cd $wd
-    zz --layout-path /tmp/zellij-repo-layout.yaml
+    zz --layout /tmp/zellij-repo-layout.yaml
 }
