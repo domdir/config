@@ -19,8 +19,12 @@ as lldb
 as libffi
 as ripgrep
 as fd
+as texlive-bin
+as stylua
 as fzf
 as npm
+as python
+as python-pip
 as icu
 as unzip
 as editorconfig-checker
@@ -28,6 +32,9 @@ as nerd-fonts-fira-code
 as noto-fonts-emoji
 sudo npm install -g cspell
 sudo npm install -g jsonlint
+sudo npm install -g stylelint
+pip install proselint
+pip install autopep8
 as codespell
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git config --global core.editor "nvim"
