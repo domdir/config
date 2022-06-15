@@ -11,7 +11,6 @@ local code_actions = null_ls.builtins.code_actions
 -- local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-	debug = false,
 	sources = {
     diagnostics.chktex,
     diagnostics.codespell,
@@ -27,6 +26,6 @@ null_ls.setup({
     code_actions.proselint,
     formatting.autopep8,
 		formatting.stylua,
-    -- diagnostics.flake8
 	},
+  on_attach = require("d.lsp.handlers").on_attach,
 })
