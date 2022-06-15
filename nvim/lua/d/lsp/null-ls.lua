@@ -22,7 +22,6 @@ null_ls.setup({
       }
     }),
     diagnostics.editorconfig_checker,
-    diagnostics.hadolint,
     diagnostics.jsonlint,
     diagnostics.markdownlint,
     diagnostics.stylelint,
