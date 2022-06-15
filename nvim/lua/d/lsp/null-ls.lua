@@ -23,7 +23,6 @@ null_ls.setup({
     }),
     diagnostics.editorconfig_checker,
     diagnostics.jsonlint,
-    diagnostics.markdownlint,
     diagnostics.stylelint,
     code_actions.proselint,
     formatting.autopep8,
