@@ -2,7 +2,21 @@
   "version": "0.2",
   "language": "en",
   "ignoreWords": [
-    "devicons"
+    "devicons",
+    "builtins",
+    "chktex",
+    "codespell",
+    "stdpath",
+    "jsonlint",
+    "proselint",
+    "autopep8",
+    "stylua",
+    "postprocess",
+    "nvim",
+    "lspconfig",
+    "pyright",
+    "sumneko",
+    "jsonls"
   ],
   "ignorePaths": ["node_modules/**"]
 }

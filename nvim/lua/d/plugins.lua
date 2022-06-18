@@ -71,6 +71,7 @@ return packer.startup(function(use)
   use "Mofiqul/vscode.nvim"
   use "martinsione/darkplus.nvim"
   use "ellisonleao/gruvbox.nvim"
+  use "folke/tokyonight.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin

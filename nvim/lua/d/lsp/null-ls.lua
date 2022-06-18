@@ -11,14 +11,18 @@ local code_actions = null_ls.builtins.code_actions
 -- local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
+  debug = true,
 	sources = {
     diagnostics.chktex,
     diagnostics.codespell,
     diagnostics.cspell.with({
       extra_args = {
         "--config",
-        "~/.config/cspell/config.json",
-      }
+        vim.fn.stdpath "config" .. "/../cspell/config.json",
+      },
+      diagnostics_postprocess = function(diagnostic)
+        diagnostic.severity = vim.diagnostic.severity["WARN"]
+      end,
     }),
     diagnostics.editorconfig_checker,
     diagnostics.jsonlint,

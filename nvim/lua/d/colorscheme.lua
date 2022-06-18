@@ -1,5 +1,5 @@
 vim.opt.background = "dark" -- or "light" for light mode
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme tokyonight]]
 -- vim.g.vscode_style = "dark"
 --
 -- vim.cmd [[
