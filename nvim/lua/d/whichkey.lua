@@ -166,9 +166,10 @@ local n_mappings = {
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+    p = { "<cmd>Telescope git_files<cr>", "Git Files" },
     c = { "<cmd>Telescope commands<cr>", "Commands" },
     i = { "<cmd>Cheat<cr>", "Search cheat.sh" },
-    f = { "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>", "Find Text (rg)" },
+    f = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Find Text (rg)" },
     F = { "<cmd>Telescope live_grep<CR>", "Find Text" },
     P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
     b = {
@@ -177,21 +178,11 @@ local n_mappings = {
     },
   },
 
-  t = {
-    name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-  },
-
   y = {
     name = "Misc",
     r = { "<cmd>Telescope reloader<cr>", "Reload module" },
     a = { ":set rnu!<cr>", "Toggle relative line numbers" },
+    l = { "<cmd>lua require('persistence').load()<cr>", "Load session" },
   },
 }
 

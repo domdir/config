@@ -24,13 +24,6 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "set nobuflisted"
 })
 
-local alpha_group = vim.api.nvim_create_augroup("_Alpha", {})
-vim.api.nvim_create_autocmd("User", {
-  pattern = "AlphaReady",
-  group = alpha_group,
-  command = "set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2"
-})
-
 local resize_group = vim.api.nvim_create_augroup("_Resize", {})
 vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",

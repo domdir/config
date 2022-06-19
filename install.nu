@@ -6,6 +6,7 @@ ln -s ~/config/zellij ~/.config/zellij
 ln -s ~/config/starship.toml ~/.config
 ln -s ~/config/window_mover.json ~/.config/window_mover.json
 ln -s ~/config/cspell ~/.config/cspell
+as make
 as xclip
 as xdotool
 as wmctrl
@@ -30,6 +31,7 @@ as unzip
 as editorconfig-checker
 as nerd-fonts-fira-code
 as noto-fonts-emoji
+as iftop
 sudo npm install -g cspell
 sudo npm install -g jsonlint
 sudo npm install -g stylelint

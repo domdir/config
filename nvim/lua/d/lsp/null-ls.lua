@@ -21,7 +21,7 @@ null_ls.setup({
         vim.fn.stdpath "config" .. "/../cspell/config.json",
       },
       diagnostics_postprocess = function(diagnostic)
-        diagnostic.severity = vim.diagnostic.severity["WARN"]
+        diagnostic.severity = vim.diagnostic.severity["INFO"]
       end,
     }),
     diagnostics.editorconfig_checker,

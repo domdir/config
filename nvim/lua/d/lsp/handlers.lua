@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: backfill this to template
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -70,13 +69,12 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   keymap(bufnr, "n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-  keymap(bufnr, "n", "<leader>.", "<cmd>Telescope lsp_code_actions<CR>", opts)
-  keymap(bufnr, "v", "<leader>.", "<cmd>Telescope lsp_code_actions<CR>", opts)
-  -- keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  keymap(bufnr, "n", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  keymap(bufnr, "v", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   keymap(bufnr, "n", "<leader>k", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
   keymap(bufnr, "n", "<leader>j", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  -- keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   keymap(bufnr, "n", "<A-l>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end

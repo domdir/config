@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "folke/persistence.nvim" -- Session restore
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
@@ -89,6 +90,7 @@ return packer.startup(function(use)
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "folke/trouble.nvim"
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "mfussenegger/nvim-jdtls" -- Java
@@ -102,10 +104,11 @@ return packer.startup(function(use)
   use {
       "nvim-telescope/telescope.nvim",
       requires = {
-          { "nvim-telescope/telescope-live-grep-raw.nvim" }
+          { "nvim-telescope/telescope-live-grep-args.nvim" }
       }
   }
   use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  use "nvim-telescope/telescope-ui-select.nvim"
 
   -- Treesitter
   use {

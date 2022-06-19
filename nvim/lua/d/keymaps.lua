@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
-keymap("n", "<c-p>", ":lua require('telescope.builtin').git_files()<CR>", opts)
+keymap("n", "<c-p>", ":lua require('telescope.builtin').find_files()<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -35,9 +35,9 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>", opts)
 
 -- quickfix list (<c-q>)
-keymap("n", "<c-j>", ":cnext<CR>", opts)
-keymap("n", "<c-k>", ":cprev<CR>", opts)
-keymap("n", "<c-q>", ":cclose<CR>", opts)
+-- keymap("n", "<c-j>", ":cnext<CR>", opts)
+-- keymap("n", "<c-k>", ":cprev<CR>", opts)
+-- keymap("n", "<c-q>", ":cclose<CR>", opts)
 
 -- clear serach
 keymap("n", "<esc>", ":noh<return><esc>", opts)
