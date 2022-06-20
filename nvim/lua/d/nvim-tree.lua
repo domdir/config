@@ -59,6 +59,7 @@ nvim_tree.setup {
     hide_root_folder = false,
     side = "left",
     auto_resize = true,
+    adaptive_size = true,
     mappings = {
       custom_only = false,
       list = {
@@ -76,5 +77,10 @@ nvim_tree.setup {
   trash = {
     cmd = "trash",
     require_confirm = true,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
   },
 }
