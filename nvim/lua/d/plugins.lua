@@ -48,7 +48,6 @@ return packer.startup(function(use)
   use "folke/persistence.nvim" -- Session restore
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
-  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use "mildred/vim-bufmru"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
