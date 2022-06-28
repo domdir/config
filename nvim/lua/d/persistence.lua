@@ -3,8 +3,7 @@ if not status_ok then
 	return
 end
 
-persistence.setup {}
-
 if #vim.fn.argv() == 0 then
+  persistence.setup {}
   vim.schedule(function() persistence.load() end)
 end
