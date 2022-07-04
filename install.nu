@@ -38,5 +38,6 @@ sudo npm install -g stylelint
 pip install proselint
 pip install autopep8
 as codespell
+as wezterm-nightly-bin
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git config --global core.editor "nvim"
