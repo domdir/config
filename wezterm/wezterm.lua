@@ -41,15 +41,28 @@ for i = 1, 5 do
   })
 end
 for i, entry in ipairs(launch_menu) do
-  table.insert(keys, {
-    key = tostring(i),
-    mods = "CTRL",
-    action = wezterm.action.SwitchToWorkspace{
-      name = entry.label,
-      spawn = entry,
-    },
-  })
-  
+  if i <= 9 then
+    table.insert(keys, {
+      key = tostring(i),
+      mods = "CTRL",
+      action = wezterm.action.SwitchToWorkspace{
+        name = entry.label,
+        spawn = entry,
+      },
+    })
+  else
+    local fi = i - 9
+    if fi <= 12 then
+      table.insert(keys, {
+        key = "F" .. tostring(i),
+        mods = "CTRL",
+        action = wezterm.action.SwitchToWorkspace{
+          name = entry.label,
+          spawn = entry,
+        },
+      })
+    end
+  end
 end
 
 return {
