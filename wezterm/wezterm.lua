@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm';
+local wezterm = require 'wezterm'
 local home_path = os.getenv("HOME")
 
 local launch_menu = {}
@@ -24,6 +24,7 @@ local keys = {
   { key = ">", mods = "LEADER", action=wezterm.action.MoveTabRelative(1) },
   { key = "s", mods = "LEADER", action=wezterm.action.SpawnWindow },
   { key = "p", mods = "LEADER", action=wezterm.action.ShowLauncher },
+  { key = "z", mods = "LEADER", action=wezterm.action.ShowDebugOverlay },
   { key = "d", mods = "LEADER", action=wezterm.action.SwitchToWorkspace{
     name = "default",
   } },
@@ -63,6 +64,7 @@ for i, entry in ipairs(launch_menu) do
       })
     end
   end
+  
 end
 
 return {
