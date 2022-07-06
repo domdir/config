@@ -64,7 +64,6 @@ for i, entry in ipairs(launch_menu) do
       })
     end
   end
-  
 end
 
 return {
@@ -76,4 +75,31 @@ return {
   tab_bar_at_bottom = true,
   leader = { key="z", mods="CTRL", timeout_milliseconds=1000 },
   keys = keys,
+  window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+  },
+  window_frame = {
+    active_titlebar_bg = "#24283b",
+    inactive_titlebar_bg = "#24283b",
+  },
+  colors = {
+    tab_bar = {
+      inactive_tab_edge = "#9ece6a",
+      active_tab = {
+        bg_color = "#9ece6a",
+        fg_color = "#24283b",
+      },
+      inactive_tab = {
+        bg_color = "#7aa2f7",
+        fg_color = "#24283b",
+      },
+      new_tab = {
+        bg_color = "#7aa2f7",
+        fg_color = "#24283b",
+      },
+    },
+  },
 }
