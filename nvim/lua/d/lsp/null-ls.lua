@@ -14,7 +14,13 @@ null_ls.setup({
   debug = true,
 	sources = {
     diagnostics.chktex,
-    diagnostics.codespell,
+    diagnostics.codespell.with({
+      args = {
+        "--ignore-words",
+        vim.fn.stdpath "config" .. "/../codespell/ignore_words.txt",
+        "-",
+      },
+    }),
     diagnostics.cspell.with({
       extra_args = {
         "--config",

@@ -4,8 +4,9 @@ ln -s ~/config/nushell ~/.config
 ln -s ~/config/alacritty ~/.config/alacritty
 ln -s ~/config/zellij ~/.config/zellij
 ln -s ~/config/starship.toml ~/.config
-ln -s ~/config/window_mover.json ~/.config/window_mover.json
+ln -s ~/config/window_mover.yaml ~/.config/window_mover.yaml
 ln -s ~/config/cspell ~/.config/cspell
+ln -s ~/config/codespell ~/.config/codespell
 as make
 as xclip
 as xdotool
