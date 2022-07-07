@@ -33,6 +33,10 @@ local keys = {
   { key = "0", mods = "CTRL", action=wezterm.action.ResetFontSize },
   { key = "Space", mods = "CTRL", action=wezterm.action.ActivateCopyMode },
   { key = "c", mods = "CTRL|SHIFT", action=wezterm.action.CopyTo("Clipboard") },
+  { key = "PageUp", mods = "", action=wezterm.action.ScrollByPage(-0.5)},
+  { key = "PageDown", mods = "", action=wezterm.action.ScrollByPage(0.5)},
+  { key = "PageUp", mods = "CTRL", action=wezterm.action.ScrollToPrompt(-1)},
+  { key = "PageDown", mods = "CTRL", action=wezterm.action.ScrollToPrompt(1)},
 }
 for i = 1, 5 do
   table.insert(keys, {

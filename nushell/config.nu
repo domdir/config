@@ -2,7 +2,8 @@
 source ~/.config/nushell/default.nu
 
 let-env config = {
-    edit_mode: vi
+    edit_mode: vi,
+    shell_integration: true
 }
 
 let-env PROMPT_COMMAND = { starship prompt }
