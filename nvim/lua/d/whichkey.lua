@@ -81,7 +81,6 @@ local n_opts = {
 }
 
 local n_mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w<CR>", "Save" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -99,7 +98,6 @@ local n_mappings = {
 
   g = {
     name = "Git",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>BlamerToggle<cr>", "Blame" },
@@ -123,10 +121,6 @@ local n_mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    -- d = {
-    --   "<cmd>Telescope diagnostics(0)<cr>",
-    --   "Document Diagnostics",
-    -- },
     w = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",

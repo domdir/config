@@ -38,6 +38,7 @@ local options = {
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   -- spelllang = "en",
   -- spell = true,
+  title = true,
 }
 
 vim.opt.shortmess:append "c"

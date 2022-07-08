@@ -70,6 +70,7 @@ lualine.setup({
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
     theme = "tokyonight",
+    globalstatus = true,
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },

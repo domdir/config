@@ -16,7 +16,12 @@
     "lspconfig",
     "pyright",
     "sumneko",
-    "jsonls"
+    "jsonls",
+    "wmctrl",
+    "horz",
+    "getwindowclassname",
+    "getwindowfocus",
+    "xdpyinfo"
   ],
   "ignorePaths": ["node_modules/**"]
 }
