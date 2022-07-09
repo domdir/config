@@ -60,6 +60,7 @@ local function lsp_keymaps(bufnr)
     ["gh"] = { vim.lsp.buf.hover, "Show hover text" },
     ["gi"] = { vim.lsp.buf.implementation, "Goto implementation" },
     ["gk"] = { vim.lsp.buf.signature_help, "Show signature help" },
+    ["gj"] = { vim.lsp.codelens.run, "Run codelens" },
     ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
     ["gr"] = { "<cmd>Telescope lsp_references<CR>", "Show references" },
     ["<leader>."] = { vim.lsp.buf.code_action, "Open code actions" },

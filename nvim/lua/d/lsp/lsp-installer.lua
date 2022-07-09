@@ -36,7 +36,6 @@ for _, server in ipairs(servers) do
 
 	if server == "jsonls" then
 	 	local jsonls_opts = require("d.lsp.settings.jsonls")
-    print(jsonls_opts)
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
     lsp_config.jsonls.setup(opts)
 	end

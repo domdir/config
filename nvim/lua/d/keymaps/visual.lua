@@ -12,3 +12,13 @@ which_key.register({
 
   p = { '"_dP', "Paste" }
 }, { mode = "v" })
+
+which_key.register({
+  g = {
+    name = "Git",
+    l = { "<cmd>BlamerToggle<cr>", "Blame" },
+  },
+}, {
+  mode = "v",
+  prefix = "<leader>",
+})

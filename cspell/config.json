@@ -24,12 +24,21 @@
     "xdpyinfo",
     "bufnr",
     "jdtls",
+    "keymap",
     "keymaps",
+    "noremap",
     "augroup",
     "autocmd",
     "texthl",
     "numhl",
-    "vimruntime"
+    "vimruntime",
+    "gitsigns",
+    "diffthis",
+    "oldfiles",
+    "bdelete",
+    "mapleader",
+    "maplocalleader",
+    "quickfix"
   ],
   "ignorePaths": ["node_modules/**"]
 }
