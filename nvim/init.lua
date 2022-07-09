@@ -1,5 +1,5 @@
-require "d.plugins"
 require "d.impatient"
+require "d.plugins"
 require "d.options"
 require "d.whichkey"
 require "d.keymaps"
