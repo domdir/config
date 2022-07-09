@@ -3,37 +3,46 @@ if not status_ok then
 	return
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-	local opts = {
-		on_attach = require("d.lsp.handlers").on_attach,
-		capabilities = require("d.lsp.handlers").capabilities,
-	}
+local servers = {
+  "rust_analyzer",
+  "sumneko_lua",
+  "jsonls",
+  "pyright",
+}
 
-	if server.name == "jsonls" then
-	 	local jsonls_opts = require("d.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	end
+lsp_installer.setup({
+  ensure_installed = servers,
+})
 
-	if server.name == "sumneko_lua" then
-	 	local sumneko_opts = require("d.lsp.settings.sumneko_lua")
-	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
+local lsp_config = require "lspconfig"
 
-  if server.name == "pyright" then
-    require("d.lsp.settings.python")
-  end
+for _, server in ipairs(servers) do
+  local opts = {
+    on_attach = require("d.lsp.handlers").on_attach,
+    capabilities = require("d.lsp.handlers").capabilities,
+  }
 
-  if server.name == "rust_analyzer" then
+  if server == "rust_analyzer" then
     require('rust-tools').setup({
       server = opts
     })
-    return
   end
 
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	server:setup(opts)
-end)
+	if server == "sumneko_lua" then
+	 	local sumneko_opts = require("d.lsp.settings.sumneko_lua")
+	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    lsp_config.sumneko_lua.setup(opts)
+	end
 
+	if server == "jsonls" then
+	 	local jsonls_opts = require("d.lsp.settings.jsonls")
+    print(jsonls_opts)
+	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    lsp_config.jsonls.setup(opts)
+	end
+
+  if server == "pyright" then
+    require("d.lsp.settings.python")
+    lsp_config.pyright.setup(opts)
+  end
+end
