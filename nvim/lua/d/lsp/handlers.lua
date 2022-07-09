@@ -1,3 +1,4 @@
+local which_key = require "which-key"
 local M = {}
 
 M.setup = function()
@@ -13,14 +14,7 @@ M.setup = function()
   end
 
   local config = {
-    -- disable virtual text
-    virtual_text = false,
-    -- show signs
-    signs = {
-      active = signs,
-    },
     update_in_insert = true,
-    underline = true,
     severity_sort = true,
     float = {
       focusable = false,
@@ -44,7 +38,7 @@ M.setup = function()
 end
 
 local function lsp_highlight_document(client)
-  -- Set autocommands conditional on server_capabilities
+  -- Set autocmd conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
       [[
@@ -60,56 +54,67 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  keymap(bufnr, "n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-  keymap(bufnr, "n", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  keymap(bufnr, "v", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  keymap(bufnr, "n", "<leader>k", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-  keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-  keymap(bufnr, "n", "<leader>j", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-  -- keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  keymap(bufnr, "n", "<A-l>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  which_key.register({
+    ["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
+    ["gd"] = { vim.lsp.buf.definition, "Goto definition" },
+    ["gh"] = { vim.lsp.buf.hover, "Show hover text" },
+    ["gi"] = { vim.lsp.buf.implementation, "Goto implementation" },
+    ["gk"] = { vim.lsp.buf.signature_help, "Show signature help" },
+    ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
+    ["gr"] = { "<cmd>Telescope lsp_references<CR>", "Show references" },
+    ["<leader>."] = { vim.lsp.buf.code_action, "Open code actions" },
+    ["<leader>k"] = { vim.diagnostic.goto_prev, "Goto previous diagnostics" },
+    ["gl"] = { vim.diagnostic.open_float, "Show line diagnostics" },
+    ["<leader>j"] = { vim.diagnostic.goto_next, "Got previous diagnostics" },
+    ["<A-l>"] = { vim.lsp.buf.formatting, "Format" },
+  }, {
+    buffer = bufnr,
+  })
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 local function dap_keymaps(client, bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-
   if client.name == "jdt.ls" then
-    keymap(bufnr, "n", "<leader>df", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
-    keymap(bufnr, "n", "<leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+    local jdtls = require "jdtls"
+    which_key.register({
+      ["<leader>df"] = { jdtls.test_class, "Test class" },
+      ["<leader>dn"] = { jdtls.test_nearest_method, "Test nearest method" },
+    }, {
+        buffer = bufnr,
+    })
   end
 
   if client.name == "pyright" then
-    keymap(bufnr, "n", "<leader>df", "<Cmd>lua require'dap-python'.test_class()<CR>", opts)
-    keymap(bufnr, "n", "<leader>dn", "<Cmd>lua require'dap-python'.test_nearest_method()<CR>", opts)
-    keymap(bufnr, "n", "<leader>ds", "<Cmd>lua require'dap-python'.debug_selection()<CR>", opts)
+    local dap_python = require "dap-python"
+    which_key.register({
+      ["<leader>df"] = { dap_python.test_class, "Test class" },
+      ["<leader>dn"] = { dap_python.test_nearest_method, "Test nearest method" },
+      ["<leader>ds"] = { dap_python.debug_selection, "Debug selection" },
+    }, {
+      buffer = bufnr,
+    })
   end
 end
 
 local function server_specific_keymaps(client, bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-
   if client.name == "jdt.ls" then
-    keymap(bufnr, "n", "<A-o>", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-    keymap(bufnr, "n", "crv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-    keymap(bufnr, "n", "crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
-    keymap(bufnr, "n", "crc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-    keymap(bufnr, "n", "crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
-    keymap(bufnr, "n", "crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+    local jdtls = require "jdtls"
+    which_key.register({
+      ["<A-o>"] = { jdtls.organize_imports, "Organize imports" },
+      ["crv"] = { jdtls.extract_variable, "Extract variable"},
+      ["crc"] = { jdtls.extract_constant, "Extract constant"},
+      ["crm"] = { function () jdtls.extract_method(true) end, "Extract method"},
+    }, {
+      buffer = bufnr,
+    })
   end
 
   if client.name == "pyright" then
-    keymap(bufnr, "n", "<A-o>", "<Cmd>PyrightOrganizeImports<CR>", opts)
+    which_key.register({
+      ["<A-o>"] = { "<Cmd>PyrightOrganizeImports<CR>", "Organize imports" },
+    }, {
+      buffer = bufnr,
+    })
   end
 end
 

@@ -21,7 +21,15 @@
     "horz",
     "getwindowclassname",
     "getwindowfocus",
-    "xdpyinfo"
+    "xdpyinfo",
+    "bufnr",
+    "jdtls",
+    "keymaps",
+    "augroup",
+    "autocmd",
+    "texthl",
+    "numhl",
+    "vimruntime"
   ],
   "ignorePaths": ["node_modules/**"]
 }
