@@ -107,7 +107,6 @@ which_key.register({
     i = { "<cmd>Cheat<cr>", "Search cheat.sh" },
     f = { require('telescope').extensions.live_grep_args.live_grep_args, "Find Text (rg)" },
     F = { "<cmd>Telescope live_grep<CR>", "Find Text" },
-    P = { require('telescope').extensions.projects.projects, "Projects" },
     b = { function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false}) end, "Buffers" },
   },
 
