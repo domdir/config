@@ -1,12 +1,2 @@
 # TODOs:
-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-  - https://github.com/bufbuild/buf
-  - https://www.nongnu.org/chktex/
-  - https://github.com/codespell-project/codespell
-  - https://github.com/streetsidesoftware/cspell
-  - https://github.com/editorconfig-checker/editorconfig-checker
-  - https://github.com/hadolint/hadolint
-  - https://github.com/zaach/jsonlint
-  - https://github.com/DavidAnson/markdownlint
-  - https://github.com/stylelint/stylelint
-  - https://github.com/amperser/proselint 
+- ...
