@@ -21,3 +21,5 @@ alias gjo = git fetch origin
 alias gr = git reset
 alias grh = git reset --hard
 alias gd = git add
+alias gb = git branch
+alias gdf = git diff
