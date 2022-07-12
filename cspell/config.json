@@ -38,7 +38,10 @@
     "bdelete",
     "mapleader",
     "maplocalleader",
-    "quickfix"
+    "quickfix",
+    "wezfurlong",
+    "wezterm",
+    "alacritty"
   ],
   "ignorePaths": ["node_modules/**"]
 }
