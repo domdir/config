@@ -90,6 +90,7 @@ commands:
     - window_names:
       - alacritty
       - slack
+      - org.wezfurlong.wezterm
       position:
         left: 1720
         top: -29
@@ -113,6 +114,7 @@ commands:
     - window_names:
       - alacritty
       - slack
+      - org.wezfurlong.wezterm
       position:
         left: 0
         top: -29
@@ -136,6 +138,7 @@ commands:
     - window_names:
       - alacritty
       - slack
+      - org.wezfurlong.wezterm
       position:
         left: 600
         top: -29
@@ -159,6 +162,7 @@ commands:
     - window_names:
       - alacritty
       - slack
+      - org.wezfurlong.wezterm
       position:
         left: 0
         top: -29
