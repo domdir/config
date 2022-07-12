@@ -36,6 +36,7 @@ as iftop
 sudo npm install -g cspell
 sudo npm install -g jsonlint
 sudo npm install -g stylelint
+sudo npm install -g vscode-json-languageserver
 pip install proselint
 pip install autopep8
 as codespell
