@@ -4,14 +4,26 @@ local home_path = os.getenv("HOME")
 local launch_menu = {}
 
 table.insert(launch_menu, {
-  label = "config",
+  label = "(1) config",
   cwd = home_path .. "/config",
 })
 
+local counter = 2
 local pfile = io.popen("dir -1 ~/repos")
+if pfile == nil then
+  return {}
+end
 for dir in pfile:lines() do
+  local prefix = ""
+  if counter <= 9 then
+    prefix = "(".. counter .. ") "
+  else
+    prefix = "(F" .. (counter - 9) .. ") "
+  end
+  counter = counter + 1
+
   table.insert(launch_menu, {
-    label = dir,
+    label = prefix .. dir,
     cwd = home_path .. "/repos/" .. dir,
   })
 end
@@ -38,7 +50,7 @@ local keys = {
   { key = "PageUp", mods = "CTRL", action=wezterm.action.ScrollToPrompt(-1)},
   { key = "PageDown", mods = "CTRL", action=wezterm.action.ScrollToPrompt(1)},
 }
-for i = 1, 5 do
+for i = 1, 9 do
   table.insert(keys, {
     key = tostring(i),
     mods = "ALT",
@@ -59,7 +71,7 @@ for i, entry in ipairs(launch_menu) do
     local fi = i - 9
     if fi <= 12 then
       table.insert(keys, {
-        key = "F" .. tostring(i),
+        key = "F" .. tostring(fi),
         mods = "CTRL",
         action = wezterm.action.SwitchToWorkspace{
           name = entry.label,
