@@ -117,6 +117,14 @@ local function server_specific_keymaps(client, bufnr)
       buffer = bufnr,
     })
   end
+
+  if client.name == "rust_analyzer" then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = "*",
+      buffer = bufnr,
+      callback = vim.lsp.buf.formatting_sync,
+    })
+  end
 end
 
 M.on_attach = function(client, bufnr)
