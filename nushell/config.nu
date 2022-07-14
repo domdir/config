@@ -17,10 +17,4 @@ source ~/.config/nushell/paru.nu
 source ~/.config/nushell/git.nu
 source ~/.config/nushell/venv.nu
 source ~/.config/nushell/zellij.nu
-
-let personal_scripts = (echo $env.HOME "/personal_config/scripts" | str collect) 
-if ($personal_scripts | path exists) {
-    ls -f $personal_scripts | each { |it|
-        source $it.name
-    }
-}
+source ~/personal_config/scripts/config.nu

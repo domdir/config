@@ -54,6 +54,8 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 
+mkdir ~/personal_config/scripts
+touch ~/personal_config/scripts/config.nu
 paru -S nushell
 paru -S starship
 
