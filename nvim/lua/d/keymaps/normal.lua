@@ -5,6 +5,8 @@ end
 
 local trouble = require "trouble"
 which_key.register({
+  ["<CR>"] = { "ciw", "Change word"},
+
   ["<C-p>"] = { "<cmd>Telescope find_files<cr>", "Find file" },
 
   ["<C-Up>"] = { ":resize -2<CR>", "Resize buffer h--" },
