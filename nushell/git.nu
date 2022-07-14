@@ -23,3 +23,16 @@ alias grh = git reset --hard
 alias gd = git add
 alias gb = git branch
 alias gdf = git diff
+def grho [] {
+    let $bname = (git symbolic-ref --short HEAD| str trim)
+    grh (echo "origin/" $bname | str collect)
+}
+def gu [bname] {
+    if (gdf --exit-code | complete).exit_code == 0 {
+        gjo $bname
+        go $bname
+        grho
+    } else {
+        echo "There are uncommitted changes"
+    }
+}
