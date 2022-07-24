@@ -32,6 +32,7 @@ as editorconfig-checker
 as nerd-fonts-fira-code
 as noto-fonts-emoji
 as iftop
+as unclutter-xfixes-git
 sudo npm install -g cspell
 sudo npm install -g jsonlint
 sudo npm install -g stylelint
@@ -42,3 +43,5 @@ as codespell
 as wezterm-nightly-bin
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git config --global core.editor "nvim"
+mkdir ~/.config/systemd/user
+ln -s ~/config/unclutter.service ~/.config/systemd/user/unclutter.service
