@@ -17,4 +17,5 @@ source ~/.config/nushell/paru.nu
 source ~/.config/nushell/git.nu
 source ~/.config/nushell/venv.nu
 source ~/.config/nushell/zellij.nu
+source ~/.config/nushell/xplr.nu
 source ~/personal_config/scripts/config.nu
