@@ -45,7 +45,9 @@
     "zellij",
     "nushell",
     "ftplugin",
-    "cclose"
+    "cclose",
+    "vsplit",
+    "netrw"
   ],
   "ignorePaths": ["node_modules/**"]
 }

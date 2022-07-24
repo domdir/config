@@ -29,6 +29,7 @@ null_ls.setup({
       diagnostics_postprocess = function(diagnostic)
         diagnostic.severity = vim.diagnostic.severity["INFO"]
       end,
+      disabled_filetypes = { "NvimTree" },
     }),
     diagnostics.editorconfig_checker,
     diagnostics.jsonlint,
