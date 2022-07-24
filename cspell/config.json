@@ -41,7 +41,11 @@
     "quickfix",
     "wezfurlong",
     "wezterm",
-    "alacritty"
+    "alacritty",
+    "zellij",
+    "nushell",
+    "ftplugin",
+    "cclose"
   ],
   "ignorePaths": ["node_modules/**"]
 }

@@ -9,11 +9,11 @@ table.insert(launch_menu, {
 })
 
 local counter = 2
-local pfile = io.popen("dir -1 ~/repos")
-if pfile == nil then
+local dir_list = io.popen("dir -1 ~/repos")
+if dir_list == nil then
   return {}
 end
-for dir in pfile:lines() do
+for dir in dir_list:lines() do
   local prefix = ""
   if counter <= 9 then
     prefix = "(".. counter .. ") "
@@ -27,7 +27,7 @@ for dir in pfile:lines() do
     cwd = home_path .. "/repos/" .. dir,
   })
 end
-pfile:close()
+dir_list:close()
 
 local keys = {
   { key = "c", mods = "LEADER", action=wezterm.action.SpawnTab("CurrentPaneDomain") },
@@ -72,7 +72,7 @@ for i, entry in ipairs(launch_menu) do
     if fi <= 12 then
       table.insert(keys, {
         key = "F" .. tostring(fi),
-        mods = "CTRL",
+        mods = "SHIFT",
         action = wezterm.action.SwitchToWorkspace{
           name = entry.label,
           spawn = entry,
