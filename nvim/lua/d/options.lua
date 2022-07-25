@@ -35,6 +35,7 @@ local options = {
   sidescrolloff = 8,                       -- buffer padding horizontally
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   title = true,
+  formatoptions = "twqro/",
 }
 
 vim.opt.shortmess:append "c"
@@ -44,5 +45,3 @@ for k, v in pairs(options) do
 end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
--- vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
