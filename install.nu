@@ -46,3 +46,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git config --global core.editor "nvim"
 mkdir ~/.config/systemd/user
 ln -s ~/config/unclutter.service ~/.config/systemd/user/unclutter.service
+systemctl --user start unclutter.service
