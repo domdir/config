@@ -68,6 +68,8 @@ local function lsp_keymaps(bufnr)
     ["gl"] = { vim.diagnostic.open_float, "Show line diagnostics" },
     ["<leader>j"] = { vim.diagnostic.goto_next, "Got previous diagnostics" },
     ["<A-l>"] = { vim.lsp.buf.formatting, "Format" },
+    ["gS"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+    ["gs"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
   }, {
     buffer = bufnr,
   })
