@@ -35,7 +35,7 @@ local options = {
   sidescrolloff = 8,                       -- buffer padding horizontally
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   title = true,
-  formatoptions = "twqro/",
+  formatoptions = "tcro/qw",
 }
 
 vim.opt.shortmess:append "c"
