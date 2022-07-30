@@ -14,6 +14,13 @@ if dir_list == nil then
   return {}
 end
 for dir in dir_list:lines() do
+  if counter == 8 then -- Ctrl + 8 does not work in wezterm
+    table.insert(launch_menu, {
+      label = "Reserved",
+      cwd = "",
+    })
+    counter = counter + 1
+  end
   local prefix = ""
   if counter <= 9 then
     prefix = "(".. counter .. ") "
