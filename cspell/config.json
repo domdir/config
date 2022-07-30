@@ -47,7 +47,8 @@
     "ftplugin",
     "cclose",
     "vsplit",
-    "netrw"
+    "netrw",
+    "luasnip"
   ],
   "ignorePaths": ["node_modules/**"]
 }
