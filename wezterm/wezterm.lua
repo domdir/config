@@ -104,6 +104,7 @@ return {
     top = 0,
     bottom = 0,
   },
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   window_frame = {
     active_titlebar_bg = "#24283b",
     inactive_titlebar_bg = "#24283b",
