@@ -56,6 +56,7 @@ local keys = {
   { key = "PageDown", mods = "", action=wezterm.action.ScrollByPage(0.5)},
   { key = "PageUp", mods = "CTRL", action=wezterm.action.ScrollToPrompt(-1)},
   { key = "PageDown", mods = "CTRL", action=wezterm.action.ScrollToPrompt(1)},
+  { key = "phys:i", mods = "CTRL", action=wezterm.action.SendString("\x1b[105;5u")},
 }
 for i = 1, 9 do
   table.insert(keys, {
@@ -126,4 +127,5 @@ return {
       },
     },
   },
+  enable_csi_u_key_encoding = true,
 }

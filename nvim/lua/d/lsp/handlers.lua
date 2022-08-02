@@ -64,6 +64,7 @@ local function lsp_keymaps(bufnr)
     ["<F2>"] = { vim.lsp.buf.rename, "Rename" },
     ["gr"] = { "<cmd>Telescope lsp_references<CR>", "Show references" },
     ["<leader>."] = { vim.lsp.buf.code_action, "Open code actions" },
+    ["<c-.>"] = { vim.lsp.buf.code_action, "Open code actions" },
     ["<leader>k"] = { vim.diagnostic.goto_prev, "Goto previous diagnostics" },
     ["gl"] = { vim.diagnostic.open_float, "Show line diagnostics" },
     ["<leader>j"] = { vim.diagnostic.goto_next, "Got previous diagnostics" },
