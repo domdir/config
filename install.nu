@@ -16,6 +16,7 @@ as neovim
 as languagetool
 as jre-openjdk
 as rust-analyzer
+as cargo-nextest
 as lldb
 as libffi
 as ripgrep

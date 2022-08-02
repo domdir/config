@@ -48,7 +48,8 @@
     "cclose",
     "vsplit",
     "netrw",
-    "luasnip"
+    "luasnip",
+    "neotest"
   ],
   "ignorePaths": ["node_modules/**"]
 }

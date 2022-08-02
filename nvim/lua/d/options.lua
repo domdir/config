@@ -39,6 +39,7 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+vim.g.cursorhold_updatetime = 200
 
 for k, v in pairs(options) do
   vim.opt[k] = v

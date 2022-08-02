@@ -39,6 +39,7 @@ vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle document_diagnosti
 )
 local harpoon_ui = require "harpoon.ui"
 local harpoon_mark = require "harpoon.mark"
+local neotest = require "neotest"
 which_key.register({
   ["1"] = { function() harpoon_ui.nav_file(1) end, "Open harpoon file 1" },
   ["2"] = { function() harpoon_ui.nav_file(2) end, "Open harpoon file 2" },
@@ -94,6 +95,9 @@ which_key.register({
     name = "Debug",
     r = { "<cmd>:lua require'dap'.repl.toggle()<CR>", "Repl Toggle" },
     l = { "<cmd>:lua require'dap'.run_last()<CR>", "Run Last" },
+    d = { function () neotest.run.run(vim.fn.expand("%")) end, "Run tests in file" },
+    j = { function () neotest.run.run() end, "Run nearest test" },
+    o = { function () neotest.output.open({ enter = true }) end, "Open test output" },
   },
 
   s = {

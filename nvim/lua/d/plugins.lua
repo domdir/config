@@ -96,6 +96,9 @@ return packer.startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "theHamsta/nvim-dap-virtual-text"
   use "mfussenegger/nvim-dap-python" -- Python debugger
+  use "nvim-neotest/neotest" -- Tests
+  use "rouge8/neotest-rust" -- Rust tests
+  use "nvim-neotest/neotest-python" -- Python tests
 
   -- Telescope
   use {
