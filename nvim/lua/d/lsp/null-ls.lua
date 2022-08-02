@@ -31,7 +31,6 @@ null_ls.setup({
       end,
       disabled_filetypes = { "NvimTree" },
     }),
-    diagnostics.editorconfig_checker,
     diagnostics.jsonlint,
     diagnostics.stylelint,
     code_actions.proselint,
