@@ -58,6 +58,7 @@ return packer.startup(function(use)
   use "ggandor/lightspeed.nvim"
   use "ThePrimeagen/harpoon"
   use "svermeulen/vim-cutlass" -- Explicit cut+paste
+  use "rcarriga/nvim-notify" -- Fancy notifications
   use {
       'glacambre/firenvim',
       run = function() vim.fn['firenvim#install'](0) end

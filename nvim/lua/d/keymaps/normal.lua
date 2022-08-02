@@ -110,6 +110,7 @@ which_key.register({
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     p = { "<cmd>Telescope git_files<cr>", "Git Files" },
     c = { "<cmd>Telescope commands<cr>", "Commands" },
+    n = { "<cmd>Telescope notify<cr>", "Notifications" },
     i = { "<cmd>Cheat<cr>", "Search cheat.sh" },
     f = { require('telescope').extensions.live_grep_args.live_grep_args, "Find Text (rg)" },
     F = { "<cmd>Telescope live_grep<CR>", "Find Text" },
