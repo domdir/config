@@ -121,6 +121,7 @@ which_key.register({
     r = { "<cmd>Telescope reloader<cr>", "Reload module" },
     a = { ":set rnu!<cr>", "Toggle relative line numbers" },
     l = { require('persistence').load, "Load session" },
+    i = { "<cmd>LuaCacheProfile<cr>", "Impatient profile" },
   },
 }, {
   prefix = "<leader>",
