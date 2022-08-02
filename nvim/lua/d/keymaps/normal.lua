@@ -86,8 +86,8 @@ which_key.register({
   l = {
     name = "LSP",
     w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    i = { "<cmd>Mason<cr>", "Mason Installer" },
+    l = { "<cmd>MasonLog<cr>", "Mason Log" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
   },
 
