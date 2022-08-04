@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local trouble = require "trouble"
+local dap = require "dap"
 which_key.register({
   ["<CR>"] = { "ciw", "Change word"},
 
@@ -32,6 +33,11 @@ which_key.register({
   ["<C-q>"] = { "<cmd>TroubleToggle quickfix<cr>", "Toggle quickfix list" },
   ["<C-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Trouble next entry" },
   ["<C-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Trouble previous entry" },
+
+  ["<F5>"] = { dap.continue, "Continue" },
+  ["<F10>"] = { dap.step_over, "Step over" },
+  ["<F11>"] = { dap.step_into, "Step into" },
+  ["<F12>"] = { dap.step_out, "Step out" },
 }, {})
 
 vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle document_diagnostics<cr>",
@@ -96,7 +102,7 @@ which_key.register({
     r = { "<cmd>:lua require'dap'.repl.toggle()<CR>", "Repl Toggle" },
     l = { "<cmd>:lua require'dap'.run_last()<CR>", "Run Last" },
     d = { function () neotest.run.run(vim.fn.expand("%")) end, "Run tests in file" },
-    j = { function () neotest.run.run() end, "Run nearest test" },
+    j = { function () neotest.run.run({ strategy = "dap" }) end, "Run nearest test" },
     o = { function () neotest.output.open({ enter = true }) end, "Open test output" },
   },
 

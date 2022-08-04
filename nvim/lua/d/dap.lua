@@ -13,15 +13,27 @@ if not vt_status_ok then
   return
 end
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap("n", "<F5>", "<cmd>:lua require'dap'.continue()<CR>", opts)
-keymap("n", "<F10>", "<cmd>:lua require'dap'.step_over()<CR>", opts)
-keymap("n", "<F11>", "<cmd>:lua require'dap'.step_into()<CR>", opts)
-keymap("n", "<F12>", "<cmd>:lua require'dap'.step_out()<CR>", opts)
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode',
+  name = 'lldb',
+}
+dap.configurations.rust = {
+  {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  }
+}
 
 vt.setup()
+dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
