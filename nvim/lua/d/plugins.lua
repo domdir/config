@@ -64,13 +64,7 @@ return packer.startup(function(use)
       run = function() vim.fn['firenvim#install'](0) end
   }
 
-  -- Colorschemes
-  -- use "lunarvim/colorschemes"
-  -- use "lunarvim/darkplus.nvim"
-  use "rafi/awesome-vim-colorschemes"
-  use "Mofiqul/vscode.nvim"
-  use "martinsione/darkplus.nvim"
-  use "ellisonleao/gruvbox.nvim"
+  -- Colorscheme
   use "folke/tokyonight.nvim"
 
   -- cmp plugins
