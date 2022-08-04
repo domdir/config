@@ -33,14 +33,3 @@ vim.cmd [[
     au BufEnter github.com_*.txt set filetype=markdown
   augroup end
 ]]
-
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-  return
-end
-
-bufferline.setup({
-  options = {
-    always_show_bufferline = false,
-  },
-})
