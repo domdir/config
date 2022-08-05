@@ -19,6 +19,14 @@ commands:
         top: 29
         width: 2520
         height: 1367
+    - window_names:
+      - jetbrains-idea-ce
+      - jetbrains-pycharm-ce
+      position:
+        left: 1299
+        top: 0
+        width: 2520
+        height: 1367
     default:
       left: 1299
       top: -29
@@ -42,6 +50,14 @@ commands:
         top: 29
         width: 1299
         height: 1411
+    - window_names:
+      - jetbrains-idea-ce
+      - jetbrains-pycharm-ce
+      position:
+        left: 0
+        top: 0
+        width: 1299
+        height: 1411
     default:
       left: 0
       top: -29
@@ -63,6 +79,14 @@ commands:
       position:
         left: 3819
         top: 29
+        width: 1301
+        height: 1411
+    - window_names:
+      - jetbrains-idea-ce
+      - jetbrains-pycharm-ce
+      position:
+        left: 3819
+        top: 0
         width: 1301
         height: 1411
     default:
@@ -173,4 +197,3 @@ commands:
       top: 29
       width: 3440
       height: 1367
-
