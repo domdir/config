@@ -25,3 +25,30 @@ vim.api.nvim_create_autocmd("FileType", {
   group = tabs_and_spaces_group,
   command = "set autoindent noexpandtab tabstop=4 shiftwidth=4"
 })
+
+local git_group = vim.api.nvim_create_augroup("Git", {})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  group = git_group,
+  callback = function ()
+    local lines = vim.api.nvim_buf_get_lines(0, 4, 5, true)
+    for _, line in ipairs(lines) do
+      local start_index = string.find(line, "/", 1, true) + 1
+      if start_index then
+        local first_dash = string.find(line, "-", start_index, true) + 1
+        if first_dash then
+          local end_index = string.find(line, "-", first_dash, true) - 1
+          local ticket = ""
+          if end_index then
+            ticket = string.sub(line, start_index, end_index)
+          else
+            ticket = string.sub(line, start_index)
+          end
+          vim.api.nvim_buf_set_lines(0, 0, 1, true, {
+            ticket .. ": "
+          })
+        end
+      end
+    end
+  end
+})
