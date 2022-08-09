@@ -42,10 +42,10 @@ vim.api.nvim_create_autocmd("FileType", {
       if not first_dash then
         return
       end
-      local end_index = string.find(line, "-", first_dash, true) - 1
+      local end_index = string.find(line, "-", first_dash, true)
       local ticket = ""
       if end_index then
-        ticket = string.sub(line, start_index, end_index)
+        ticket = string.sub(line, start_index, end_index - 1)
       else
         ticket = string.sub(line, start_index)
       end
