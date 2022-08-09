@@ -13,7 +13,6 @@ as wmctrl
 as tmux
 as zellij
 as neovim
-as languagetool
 as jre-openjdk
 as rust-analyzer
 as cargo-nextest
