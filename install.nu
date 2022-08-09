@@ -48,3 +48,5 @@ mkdir ~/.config/systemd/user
 ln -s ~/config/unclutter.service ~/.config/systemd/user/unclutter.service
 systemctl --user enable unclutter.service
 systemctl --user start unclutter.service
+python -m venv ~/debugpy
+~/debugpy/bin/pip install debugpy
