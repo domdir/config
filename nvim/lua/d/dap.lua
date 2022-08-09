@@ -32,6 +32,12 @@ dap.configurations.rust = {
   }
 }
 
+dap.adapters.python = {
+  type = 'executable',
+  command = vim.fn.stdpath "config" .. "/../../debugpy/bin/python",
+  args = { '-m', 'debugpy.adapter' },
+}
+
 vt.setup()
 dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
