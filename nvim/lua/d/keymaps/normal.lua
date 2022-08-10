@@ -6,8 +6,6 @@ end
 local trouble = require "trouble"
 local dap = require "dap"
 which_key.register({
-  ["<CR>"] = { "ciw", "Change word"},
-
   ["<C-p>"] = { "<cmd>Telescope find_files<cr>", "Find file" },
 
   ["<C-Up>"] = { ":resize -2<CR>", "Resize buffer h--" },
@@ -39,6 +37,12 @@ which_key.register({
   ["<F11>"] = { dap.step_into, "Step into" },
   ["<F12>"] = { dap.step_out, "Step out" },
 }, {})
+
+which_key.register({
+  ["<CR>"] = { "ciw", "Change word"},
+}, {
+  noremap = false,
+})
 
 vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle document_diagnostics<cr>",
   {silent = true, noremap = true}
