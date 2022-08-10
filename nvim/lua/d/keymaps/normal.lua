@@ -44,9 +44,6 @@ which_key.register({
   noremap = false,
 })
 
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
 local harpoon_ui = require "harpoon.ui"
 local harpoon_mark = require "harpoon.mark"
 local neotest = require "neotest"
@@ -63,7 +60,7 @@ which_key.register({
   ["B"] = { function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))() end, "Conditional Breakpoint" },
   ["h"] = { harpoon_ui.toggle_quick_menu, "Toggle harpoon menu" },
   ["m"] = { harpoon_mark.add_file, "Add harpoon file" },
-  ["a"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Toggle document diagnostics" },
+  ["q"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Toggle document diagnostics" },
 
   p = {
     name = "Packer",
