@@ -32,6 +32,8 @@ which_key.register({
   ["<C-j>"] = { function() trouble.next({skip_groups = true, jump = true}) end, "Trouble next entry" },
   ["<C-k>"] = { function() trouble.previous({skip_groups = true, jump = true}) end, "Trouble previous entry" },
 
+  ["<C-f>"] = { require('telescope').extensions.live_grep_args.live_grep_args, "Find Text (rg)" },
+
   ["<F5>"] = { dap.continue, "Continue" },
   ["<F10>"] = { dap.step_over, "Step over" },
   ["<F11>"] = { dap.step_into, "Step into" },
@@ -120,7 +122,6 @@ which_key.register({
     n = { "<cmd>Telescope notify<cr>", "Notifications" },
     i = { "<cmd>Cheat<cr>", "Search cheat.sh" },
     f = { require('telescope').extensions.live_grep_args.live_grep_args, "Find Text (rg)" },
-    ["<C-f>"] = { require('telescope').extensions.live_grep_args.live_grep_args, "Find Text (rg)" },
     F = { "<cmd>Telescope live_grep<CR>", "Find Text" },
     b = { function() require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false}) end, "Buffers" },
   },
