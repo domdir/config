@@ -3,7 +3,14 @@ if not status_ok then
   return
 end
 
-telescope.setup {}
+telescope.setup {
+  defaults = {
+    layout_config = {
+      height = 0.99,
+      width = 0.99,
+    }
+  }
+}
 
 telescope.load_extension("fzf")
 telescope.load_extension("harpoon")
