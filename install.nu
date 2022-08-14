@@ -33,6 +33,7 @@ as nerd-fonts-fira-code
 as noto-fonts-emoji
 as iftop
 as unclutter-xfixes-git
+as k9s
 sudo npm install -g cspell
 sudo npm install -g jsonlint
 sudo npm install -g stylelint
