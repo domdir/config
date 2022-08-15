@@ -55,7 +55,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
-  use "ggandor/lightspeed.nvim"
+  use "ggandor/leap.nvim"
   use "ThePrimeagen/harpoon"
   use "svermeulen/vim-cutlass" -- Explicit cut+paste
   use "rcarriga/nvim-notify" -- Fancy notifications
