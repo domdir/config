@@ -23,7 +23,7 @@ for dir in dir_list:lines() do
   end
   local prefix = ""
   if counter <= 9 then
-    prefix = "(".. counter .. ") "
+    prefix = "(" .. counter .. ") "
   else
     prefix = "(F" .. (counter - 9) .. ") "
   end
@@ -37,33 +37,36 @@ end
 dir_list:close()
 
 local keys = {
-  { key = "c", mods = "LEADER", action=wezterm.action.SpawnTab("CurrentPaneDomain") },
-  { key = "x", mods = "LEADER", action=wezterm.action.CloseCurrentTab{confirm=false} },
-  { key = "<", mods = "LEADER", action=wezterm.action.MoveTabRelative(-1) },
-  { key = ">", mods = "LEADER", action=wezterm.action.MoveTabRelative(1) },
-  { key = "s", mods = "LEADER", action=wezterm.action.SpawnWindow },
-  { key = "p", mods = "LEADER", action=wezterm.action.ShowLauncher },
-  { key = "z", mods = "LEADER", action=wezterm.action.ShowDebugOverlay },
-  { key = "d", mods = "LEADER", action=wezterm.action.SwitchToWorkspace{
+  { key = "c", mods = "LEADER", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+  { key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentTab { confirm = false } },
+  { key = "<", mods = "LEADER", action = wezterm.action.MoveTabRelative(-1) },
+  { key = ">", mods = "LEADER", action = wezterm.action.MoveTabRelative(1) },
+  { key = "s", mods = "LEADER", action = wezterm.action.SpawnWindow },
+  { key = "p", mods = "LEADER", action = wezterm.action.ShowLauncher },
+  { key = "z", mods = "LEADER", action = wezterm.action.ShowDebugOverlay },
+  { key = "d", mods = "LEADER", action = wezterm.action.SwitchToWorkspace {
     name = "default",
   } },
-  { key = "z", mods = "LEADER|CTRL", action=wezterm.action.SendKey { key = "z", mods = "CTRL" } },
-  { key = "+", mods = "CTRL", action=wezterm.action.IncreaseFontSize },
-  { key = "-", mods = "CTRL", action=wezterm.action.DecreaseFontSize },
-  { key = "0", mods = "CTRL", action=wezterm.action.ResetFontSize },
-  { key = "Space", mods = "CTRL", action=wezterm.action.ActivateCopyMode },
-  { key = "c", mods = "CTRL|SHIFT", action=wezterm.action.CopyTo("Clipboard") },
-  { key = "PageUp", mods = "", action=wezterm.action.ScrollByPage(-0.5)},
-  { key = "PageDown", mods = "", action=wezterm.action.ScrollByPage(0.5)},
-  { key = "PageUp", mods = "CTRL", action=wezterm.action.ScrollToPrompt(-1)},
-  { key = "PageDown", mods = "CTRL", action=wezterm.action.ScrollToPrompt(1)},
-  { key = "phys:i", mods = "CTRL", action=wezterm.action.SendString("\x1b[105;5u")},
+  { key = 'p', mods = 'ALT', action = wezterm.action.ShowLauncherArgs {
+    flags = 'FUZZY|WORKSPACES',
+  } },
+  { key = "z", mods = "LEADER|CTRL", action = wezterm.action.SendKey { key = "z", mods = "CTRL" } },
+  { key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+  { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+  { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+  { key = "Space", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
+  { key = "c", mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
+  { key = "PageUp", mods = "", action = wezterm.action.ScrollByPage(-0.5) },
+  { key = "PageDown", mods = "", action = wezterm.action.ScrollByPage(0.5) },
+  { key = "PageUp", mods = "CTRL", action = wezterm.action.ScrollToPrompt(-1) },
+  { key = "PageDown", mods = "CTRL", action = wezterm.action.ScrollToPrompt(1) },
+  { key = "phys:i", mods = "CTRL", action = wezterm.action.SendString("\x1b[105;5u") },
 }
 for i = 1, 9 do
   table.insert(keys, {
     key = tostring(i),
     mods = "ALT",
-    action = wezterm.action.ActivateTab(i-1),
+    action = wezterm.action.ActivateTab(i - 1),
   })
 end
 for i, entry in ipairs(launch_menu) do
@@ -71,7 +74,7 @@ for i, entry in ipairs(launch_menu) do
     table.insert(keys, {
       key = tostring(i),
       mods = "CTRL",
-      action = wezterm.action.SwitchToWorkspace{
+      action = wezterm.action.SwitchToWorkspace {
         name = entry.label,
         spawn = entry,
       },
@@ -82,7 +85,7 @@ for i, entry in ipairs(launch_menu) do
       table.insert(keys, {
         key = "F" .. tostring(fi),
         mods = "SHIFT",
-        action = wezterm.action.SwitchToWorkspace{
+        action = wezterm.action.SwitchToWorkspace {
           name = entry.label,
           spawn = entry,
         },
@@ -98,7 +101,7 @@ return {
   color_scheme = "tokyonight-storm",
   launch_menu = launch_menu,
   tab_bar_at_bottom = true,
-  leader = { key="z", mods="CTRL", timeout_milliseconds=1000 },
+  leader = { key = "z", mods = "CTRL", timeout_milliseconds = 1000 },
   keys = keys,
   window_padding = {
     left = 0,
